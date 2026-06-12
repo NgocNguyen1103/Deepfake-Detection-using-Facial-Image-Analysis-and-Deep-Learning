@@ -1,0 +1,22 @@
+REAL_TYPE = "original"
+
+FAKE_TYPES = [
+    "Deepfakes",
+    "Face2Face",
+    "FaceSwap",
+    "FaceShifter",
+    "NeuralTextures",
+    "DeepFakeDetection",
+]
+
+ALL_TYPES = [REAL_TYPE] + FAKE_TYPES
+
+DEFAULT_TRAIN_RATIO = 0.70
+DEFAULT_VAL_RATIO = 0.15
+DEFAULT_TEST_RATIO = 0.15
+
+DEFAULT_OUTPUT_SIZE = 224
+DEFAULT_FRAMES_PER_VIDEO = 32
+DEFAULT_MIN_CONFIDENCE = 0.90
+DEFAULT_MARGIN_RATIO = 0.20
+DEFAULT_RANDOM_STATE = 42
