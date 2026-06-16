@@ -6,7 +6,6 @@ FAKE_TYPES = [
     "FaceSwap",
     "FaceShifter",
     "NeuralTextures",
-    "DeepFakeDetection",
 ]
 
 ALL_TYPES = [REAL_TYPE] + FAKE_TYPES
