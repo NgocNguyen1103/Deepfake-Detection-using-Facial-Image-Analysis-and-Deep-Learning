@@ -20,6 +20,7 @@ from preprocessing.metadata_loader import (
     load_ffpp_metadata,
 )
 from preprocessing.output_writer import (
+    flush_all_pending_rows,
     initialize_output_files,
     print_processing_summary_from_csv,
 )
@@ -150,12 +151,16 @@ def main():
     )
 
     print("Step 7: Extract frames, detect faces, crop faces, append CSV rows")
-    processing_stats = process_dataset(
-        video_metadata_split=video_metadata_split,
-        output_root=output_root,
-        frames_per_video=args.frames_per_video,
-        face_detector=face_detector,
-    )
+    try:
+        processing_stats = process_dataset(
+            video_metadata_split=video_metadata_split,
+            output_root=output_root,
+            frames_per_video=args.frames_per_video,
+            face_detector=face_detector,
+        )
+    finally:
+        print("\nFlushing pending CSV rows...")
+        flush_all_pending_rows(max_retries=10, sleep_seconds=1.0)
 
     print_processing_summary_from_csv(output_root)
 
