@@ -54,15 +54,148 @@ def create_empty_csv(csv_path: Path, columns: list[str]) -> None:
         writer = csv.DictWriter(file, fieldnames=columns)
         writer.writeheader()
 
-
-def initialize_output_files(output_root: Path, video_metadata_split: pd.DataFrame) -> None:
+def ensure_csv_exists(csv_path: Path, columns: list[str]) -> None:
     """
-    Create output folders and CSV files before processing frames.
+    Create CSV with header if it does not exist.
+    Used in resume mode to avoid overwriting old progress.
+    """
+    if csv_path.exists() and csv_path.stat().st_size > 0:
+        return
 
-    frame_metadata.csv, failed_frames.csv, train.csv, val.csv, test.csv
-    are created first with header only.
+    create_empty_csv(csv_path, columns)
 
-    video_metadata_split.csv is written immediately after video split.
+
+def load_video_metadata_split(output_root: Path) -> pd.DataFrame:
+    """
+    Load existing video split metadata for resume mode.
+    """
+    path = output_root / "video_metadata_split.csv"
+
+    if not path.exists():
+        raise FileNotFoundError(f"Cannot resume because file does not exist: {path}")
+
+    return pd.read_csv(path)
+
+
+def read_frame_keys_from_csv(csv_path: Path) -> set[tuple[str, int]]:
+    """
+    Read processed frame keys from a CSV file.
+
+    Key format:
+    (video_id, frame_number)
+    """
+    processed_keys = set()
+
+    if not csv_path.exists() or csv_path.stat().st_size == 0:
+        return processed_keys
+
+    try:
+        chunks = pd.read_csv(
+            csv_path,
+            usecols=["video_id", "frame_number"],
+            chunksize=100_000,
+        )
+
+        for chunk in chunks:
+            chunk = chunk.dropna(subset=["video_id", "frame_number"])
+
+            for _, row in chunk.iterrows():
+                try:
+                    video_id = str(row["video_id"])
+                    frame_number = int(float(row["frame_number"]))
+                    processed_keys.add((video_id, frame_number))
+                except (ValueError, TypeError):
+                    continue
+
+    except pd.errors.EmptyDataError:
+        return processed_keys
+
+    except ValueError:
+        return processed_keys
+
+    return processed_keys
+
+
+def load_processed_frame_keys(
+    output_root: Path,
+    include_failed_frames: bool = True,
+) -> set[tuple[str, int]]:
+    """
+    Load all frames that were already processed in previous runs.
+
+    By default, both successful frames and failed frames are skipped.
+    """
+    processed_keys = set()
+
+    processed_keys.update(
+        read_frame_keys_from_csv(output_root / "frame_metadata.csv")
+    )
+
+    if include_failed_frames:
+        processed_keys.update(
+            read_frame_keys_from_csv(output_root / "failed_frames.csv")
+        )
+
+    return processed_keys
+
+
+def rebuild_split_csvs_from_frame_metadata(output_root: Path) -> None:
+    """
+    Rebuild train.csv, val.csv, test.csv from frame_metadata.csv.
+
+    This helps keep split CSV files consistent in resume mode.
+    """
+    frame_metadata_path = output_root / "frame_metadata.csv"
+
+    if not frame_metadata_path.exists() or frame_metadata_path.stat().st_size == 0:
+        for split in SPLITS:
+            ensure_csv_exists(output_root / f"{split}.csv", FRAME_METADATA_COLUMNS)
+        return
+
+    try:
+        frame_metadata = pd.read_csv(frame_metadata_path)
+    except pd.errors.EmptyDataError:
+        for split in SPLITS:
+            ensure_csv_exists(output_root / f"{split}.csv", FRAME_METADATA_COLUMNS)
+        return
+
+    if len(frame_metadata) == 0:
+        for split in SPLITS:
+            create_empty_csv(output_root / f"{split}.csv", FRAME_METADATA_COLUMNS)
+        return
+
+    if "sample_id" in frame_metadata.columns:
+        frame_metadata = frame_metadata.drop_duplicates(
+            subset=["sample_id"],
+            keep="first",
+        )
+    else:
+        frame_metadata = frame_metadata.drop_duplicates(
+            subset=["video_id", "frame_number"],
+            keep="first",
+        )
+
+    for split in SPLITS:
+        split_df = frame_metadata[frame_metadata["split"] == split].copy()
+        split_df.to_csv(output_root / f"{split}.csv", index=False)
+
+
+def initialize_output_files(
+    output_root: Path,
+    video_metadata_split: pd.DataFrame,
+    resume: bool = False,
+) -> None:
+    """
+    Create output folders and CSV files.
+
+    Normal mode:
+    - overwrite old CSV files
+    - start from scratch
+
+    Resume mode:
+    - do not overwrite old CSV files
+    - keep previous progress
+    - only create missing CSV files
     """
     output_root.mkdir(parents=True, exist_ok=True)
 
@@ -70,16 +203,31 @@ def initialize_output_files(output_root: Path, video_metadata_split: pd.DataFram
         (output_root / split / "real").mkdir(parents=True, exist_ok=True)
         (output_root / split / "fake").mkdir(parents=True, exist_ok=True)
 
-    video_metadata_split.to_csv(
-        output_root / "video_metadata_split.csv",
-        index=False,
-    )
+    if resume:
+        video_split_path = output_root / "video_metadata_split.csv"
 
-    create_empty_csv(output_root / "frame_metadata.csv", FRAME_METADATA_COLUMNS)
-    create_empty_csv(output_root / "failed_frames.csv", FAILED_FRAME_COLUMNS)
+        if not video_split_path.exists():
+            video_metadata_split.to_csv(video_split_path, index=False)
 
-    for split in SPLITS:
-        create_empty_csv(output_root / f"{split}.csv", FRAME_METADATA_COLUMNS)
+        ensure_csv_exists(output_root / "frame_metadata.csv", FRAME_METADATA_COLUMNS)
+        ensure_csv_exists(output_root / "failed_frames.csv", FAILED_FRAME_COLUMNS)
+
+        for split in SPLITS:
+            ensure_csv_exists(output_root / f"{split}.csv", FRAME_METADATA_COLUMNS)
+
+        rebuild_split_csvs_from_frame_metadata(output_root)
+
+    else:
+        video_metadata_split.to_csv(
+            output_root / "video_metadata_split.csv",
+            index=False,
+        )
+
+        create_empty_csv(output_root / "frame_metadata.csv", FRAME_METADATA_COLUMNS)
+        create_empty_csv(output_root / "failed_frames.csv", FAILED_FRAME_COLUMNS)
+
+        for split in SPLITS:
+            create_empty_csv(output_root / f"{split}.csv", FRAME_METADATA_COLUMNS)
 
 
 def normalize_row(row: dict, columns: list[str]) -> dict:

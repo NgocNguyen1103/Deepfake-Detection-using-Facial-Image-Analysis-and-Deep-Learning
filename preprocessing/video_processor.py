@@ -25,9 +25,13 @@ def process_single_video(
     output_root: Path,
     frames_per_video: int,
     face_detector,
+    processed_frame_keys: set[tuple[str, int]] | None = None,
 ):
+    if processed_frame_keys is None:
+        processed_frame_keys = set()
+
     video_path = video_row["video_path"]
-    video_id = video_row["video_id"]
+    video_id = str(video_row["video_id"])
     label = video_row["label"]
     label_id = int(video_row["label_id"])
     manipulation_type = video_row["manipulation_type"]
@@ -39,6 +43,7 @@ def process_single_video(
 
     success_count = 0
     failed_count = 0
+    skipped_count = 0
 
     def record_failed(frame_number, reason):
         nonlocal failed_count
@@ -53,17 +58,27 @@ def process_single_video(
         append_failed_row(output_root, failed_row)
         failed_count += 1
 
+        if frame_number is not None:
+            processed_frame_keys.add((video_id, int(frame_number)))
+
     cap = cv2.VideoCapture(video_path)
 
     if not cap.isOpened():
         record_failed(frame_number=None, reason="Cannot open video")
-        return success_count, failed_count
+        return success_count, failed_count, skipped_count
 
     try:
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         frame_indices = get_uniform_frame_indices(total_frames, frames_per_video)
 
         for frame_number in frame_indices:
+            frame_number = int(frame_number)
+            frame_key = (video_id, frame_number)
+
+            if frame_key in processed_frame_keys:
+                skipped_count += 1
+                continue
+
             cap.set(cv2.CAP_PROP_POS_FRAMES, frame_number)
 
             success, frame_bgr = cap.read()
@@ -117,39 +132,48 @@ def process_single_video(
             }
 
             append_frame_row(output_root, frame_row)
+
+            processed_frame_keys.add(frame_key)
             success_count += 1
 
     finally:
         cap.release()
 
-    return success_count, failed_count
-
+    return success_count, failed_count, skipped_count
 
 def process_dataset(
     video_metadata_split: pd.DataFrame,
     output_root: Path,
     frames_per_video: int,
     face_detector,
+    processed_frame_keys: set[tuple[str, int]] | None = None,
 ):
+    if processed_frame_keys is None:
+        processed_frame_keys = set()
+
     total_success = 0
     total_failed = 0
+    total_skipped = 0
 
     for _, row in tqdm(
         video_metadata_split.iterrows(),
         total=len(video_metadata_split),
         desc="Processing videos",
     ):
-        success_count, failed_count = process_single_video(
+        success_count, failed_count, skipped_count = process_single_video(
             video_row=row,
             output_root=output_root,
             frames_per_video=frames_per_video,
             face_detector=face_detector,
+            processed_frame_keys=processed_frame_keys,
         )
 
         total_success += success_count
         total_failed += failed_count
+        total_skipped += skipped_count
 
     return {
         "success_frames": total_success,
         "failed_frames": total_failed,
+        "skipped_frames": total_skipped,
     }

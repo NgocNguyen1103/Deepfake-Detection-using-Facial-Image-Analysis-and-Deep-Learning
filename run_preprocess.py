@@ -22,6 +22,8 @@ from preprocessing.metadata_loader import (
 from preprocessing.output_writer import (
     flush_all_pending_rows,
     initialize_output_files,
+    load_processed_frame_keys,
+    load_video_metadata_split,
     print_processing_summary_from_csv,
 )
 
@@ -101,6 +103,18 @@ def parse_args():
         help="Random seed.",
     )
 
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Resume preprocessing from existing CSV files instead of starting from scratch.",
+    )
+
+    parser.add_argument(
+        "--retry_failed_frames",
+        action="store_true",
+        help="In resume mode, retry failed frames instead of skipping them.",
+    )
+
     return parser.parse_args()
 
 
@@ -111,36 +125,42 @@ def main():
     csv_path = Path(args.csv_path)
     output_root = Path(args.output_root)
 
-    print("Step 1: Load CSV metadata")
-    metadata = load_ffpp_metadata(
-        raw_root=raw_root,
-        csv_path=csv_path,
-    )
+    if args.resume and (output_root / "video_metadata_split.csv").exists():
+        print("Resume mode: Load existing video split metadata")
+        video_metadata_split = load_video_metadata_split(output_root)
 
-    print("Step 2: Filter valid videos")
-    metadata = filter_valid_videos(metadata)
+    else:
+        print("Step 1: Load CSV metadata")
+        metadata = load_ffpp_metadata(
+            raw_root=raw_root,
+            csv_path=csv_path,
+        )
 
-    print("Step 3: Balance REAL and FAKE videos")
-    metadata = balance_videos(
-        metadata=metadata,
-        real_count=args.real_count,
-        fake_per_type=args.fake_per_type,
-        random_state=args.random_state,
-    )
+        print("Step 2: Filter valid videos")
+        metadata = filter_valid_videos(metadata)
 
-    print("Step 4: Split videos into train/val/test")
-    video_metadata_split = split_videos(
-        metadata=metadata,
-        train_ratio=DEFAULT_TRAIN_RATIO,
-        val_ratio=DEFAULT_VAL_RATIO,
-        test_ratio=DEFAULT_TEST_RATIO,
-        random_state=args.random_state,
-    )
+        print("Step 3: Balance REAL and FAKE videos")
+        metadata = balance_videos(
+            metadata=metadata,
+            real_count=args.real_count,
+            fake_per_type=args.fake_per_type,
+            random_state=args.random_state,
+        )
 
-    print("Step 5: Create output folders and empty CSV files")
+        print("Step 4: Split videos into train/val/test")
+        video_metadata_split = split_videos(
+            metadata=metadata,
+            train_ratio=DEFAULT_TRAIN_RATIO,
+            val_ratio=DEFAULT_VAL_RATIO,
+            test_ratio=DEFAULT_TEST_RATIO,
+            random_state=args.random_state,
+        )
+
+    print("Step 5: Create or reuse output CSV files")
     initialize_output_files(
         output_root=output_root,
         video_metadata_split=video_metadata_split,
+        resume=args.resume,
     )
 
     print("Step 6: Initialize RetinaFace detector")
@@ -150,24 +170,55 @@ def main():
         output_size=args.output_size,
     )
 
+    processed_frame_keys = set()
+
+    if args.resume:
+        print("Resume mode: Load processed frame keys")
+
+        processed_frame_keys = load_processed_frame_keys(
+            output_root=output_root,
+            include_failed_frames=not args.retry_failed_frames,
+        )
+
+        print(f"Already processed frames: {len(processed_frame_keys)}")
+
     print("Step 7: Extract frames, detect faces, crop faces, append CSV rows")
+
+    interrupted = False
+    processing_stats = None
+
     try:
         processing_stats = process_dataset(
             video_metadata_split=video_metadata_split,
             output_root=output_root,
             frames_per_video=args.frames_per_video,
             face_detector=face_detector,
+            processed_frame_keys=processed_frame_keys,
         )
+
+    except KeyboardInterrupt:
+        interrupted = True
+        print("\nInterrupted by user.")
+
     finally:
         print("\nFlushing pending CSV rows...")
         flush_all_pending_rows(max_retries=10, sleep_seconds=1.0)
 
     print_processing_summary_from_csv(output_root)
 
-    print("\nDone.")
-    print(f"Success frames: {processing_stats['success_frames']}")
-    print(f"Failed frames: {processing_stats['failed_frames']}")
-    print(f"Processed dataset saved to: {output_root}")
+    if interrupted:
+        print("\nStopped before finishing.")
+        print(f"Progress was saved to: {output_root}")
+        print("Run the same command with --resume to continue.")
+    else:
+        print("\nDone.")
+
+        if processing_stats is not None:
+            print(f"Success frames: {processing_stats['success_frames']}")
+            print(f"Failed frames: {processing_stats['failed_frames']}")
+            print(f"Skipped frames: {processing_stats['skipped_frames']}")
+
+        print(f"Processed dataset saved to: {output_root}")
 
 
 if __name__ == "__main__":
