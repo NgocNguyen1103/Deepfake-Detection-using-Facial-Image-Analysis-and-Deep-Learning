@@ -36,6 +36,11 @@ def split_videos(metadata: pd.DataFrame, train_ratio: float, val_ratio: float, t
 
     result = pd.concat([train_df, val_df, test_df], ignore_index=True)
 
+    result = result.sample(
+        frac=1,
+        random_state=random_state,
+    ).reset_index(drop=True)
+
     check_video_leakage(result)
 
     return result
