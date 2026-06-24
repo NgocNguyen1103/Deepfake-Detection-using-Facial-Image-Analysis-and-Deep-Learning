@@ -1,4 +1,5 @@
 \.venv
 \venv
-\checkpoint
+\checkpoints
+\v2
 *\__pycache__
