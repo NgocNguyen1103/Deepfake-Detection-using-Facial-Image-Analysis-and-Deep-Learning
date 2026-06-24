@@ -29,7 +29,7 @@ class EfficientNetB0Baseline(nn.Module):
         self.pool = nn.AdaptiveAvgPool2d(1)
 
         self.classifier = nn.Sequential(
-            nn.Dropout(p=0.3),
+            nn.Dropout(p=0.5),
             nn.Linear(1280, 1)
         )
 
