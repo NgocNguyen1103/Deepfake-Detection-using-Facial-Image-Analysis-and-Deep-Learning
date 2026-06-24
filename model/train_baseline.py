@@ -81,7 +81,7 @@ def save_checkpoint(
     model,
     optimizer,
     epoch,
-    best_val_acc,
+    best_val_loss,
     train_loss,
     train_acc,
     val_loss,
@@ -91,7 +91,7 @@ def save_checkpoint(
         "epoch": epoch,
         "model_state_dict": model.state_dict(),
         "optimizer_state_dict": optimizer.state_dict(),
-        "best_val_acc": best_val_acc,
+        "best_val_loss": best_val_loss,
         "train_loss": train_loss,
         "train_acc": train_acc,
         "val_loss": val_loss,
@@ -108,13 +108,13 @@ def load_checkpoint(checkpoint_path, model, optimizer, device):
     optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
 
     start_epoch = int(checkpoint["epoch"])
-    best_val_acc = float(checkpoint["best_val_acc"])
+    best_val_loss = float(checkpoint["best_val_loss"])
 
     print(f"Loaded checkpoint from: {checkpoint_path}")
     print(f"Resume from epoch: {start_epoch + 1}")
-    print(f"Best Val Acc: {best_val_acc:.4f}")
+    print(f"Best Val Loss: {best_val_loss:.4f}")
 
-    return start_epoch, best_val_acc
+    return start_epoch, best_val_loss
 
 
 def main():
@@ -122,7 +122,7 @@ def main():
 
     batch_size = 16
     num_epochs = 10
-    learning_rate = 1e-4
+    learning_rate = 5e-5
     num_workers = 0
     resume = False
 
@@ -173,14 +173,14 @@ def main():
     optimizer = torch.optim.AdamW(
         model.parameters(),
         lr=learning_rate,
-        weight_decay=1e-4,
+        weight_decay=5e-4,
     )
 
     start_epoch = 0
-    best_val_acc = -1.0
+    best_val_loss = float('inf')
 
     if resume and latest_checkpoint_path.exists():
-        start_epoch, best_val_acc = load_checkpoint(
+        start_epoch, best_val_loss = load_checkpoint(
             checkpoint_path=latest_checkpoint_path,
             model=model,
             optimizer=optimizer,
@@ -218,17 +218,17 @@ def main():
         })
 
         pd.DataFrame(history).to_csv(history_path, index=False)
-        is_best = val_acc > best_val_acc
+        is_best = val_loss < best_val_loss
 
         if is_best:
-            best_val_acc = val_acc
+            best_val_loss = val_loss
 
         save_checkpoint(
             checkpoint_path=latest_checkpoint_path,
             model=model,
             optimizer=optimizer,
             epoch=epoch + 1,
-            best_val_acc=best_val_acc,
+            best_val_loss=best_val_loss,
             train_loss=train_loss,
             train_acc=train_acc,
             val_loss=val_loss,
@@ -243,7 +243,7 @@ def main():
                 model=model,
                 optimizer=optimizer,
                 epoch=epoch + 1,
-                best_val_acc=best_val_acc,
+                best_val_loss=best_val_loss,
                 train_loss=train_loss,
                 train_acc=train_acc,
                 val_loss=val_loss,
@@ -253,7 +253,7 @@ def main():
             print(f"Saved best checkpoint to: {best_checkpoint_path}")
 
     print("\nTraining finished.")
-    print(f"Best Val Acc: {best_val_acc:.4f}")
+    print(f"Best Val Loss: {best_val_loss:.4f}")
 
 
 if __name__ == "__main__":
