@@ -7,8 +7,15 @@ def get_train_transform(image_size: int = 224):
     return transforms.Compose([
         transforms.Resize((image_size, image_size)),
 
-        # Augmentation nhẹ cho training
         transforms.RandomHorizontalFlip(p=0.5),
+        transforms.RandomRotation(degrees=5),
+
+        transforms.RandomAffine(
+            degrees=0,
+            translate=(0.03, 0.03),
+            scale=(0.95, 1.05),
+        ),
+
         transforms.ColorJitter(
             brightness=0.10,
             contrast=0.10,
