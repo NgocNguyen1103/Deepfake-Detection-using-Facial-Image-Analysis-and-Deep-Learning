@@ -1,10 +1,10 @@
-# model/evaluate_model.py
+# scripts/evaluate_baseline_model_image_level.py
 # Model evaluation script with comprehensive metrics
 
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(PROJECT_ROOT))
 
 import torch
@@ -23,7 +23,7 @@ from sklearn.metrics import (
 import matplotlib.pyplot as plt
 import seaborn as sns
 from data.DataLoader import build_dataloaders
-from model.efficientnet_baseline import EfficientNetB0Baseline
+from models.efficientnet_baseline import EfficientNetB0Baseline
 
 
 def evaluate_model(model, test_loader, device):

@@ -1,0 +1,1002 @@
+[
+  {
+    "video_id": "original_050_b121442b",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.773919171907685,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 22,
+    "detected_frames": 22
+  },
+  {
+    "video_id": "original_079_adad95a8",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.5340753932793935,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 15,
+    "detected_frames": 15
+  },
+  {
+    "video_id": "original_080_19292832",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.2655734993517399,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 20,
+    "detected_frames": 20
+  },
+  {
+    "video_id": "original_087_73f129a1",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.09363412158563733,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "original_107_5c172758",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.4840479182160419,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 23,
+    "detected_frames": 23
+  },
+  {
+    "video_id": "original_122_92d96842",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.28398212748156354,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 11,
+    "detected_frames": 11
+  },
+  {
+    "video_id": "original_149_2b6be8fe",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.14237809473027785,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 15,
+    "detected_frames": 15
+  },
+  {
+    "video_id": "original_167_aa7076e0",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.04096604384747999,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "original_169_ac717b2b",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.051896824459121985,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 22,
+    "detected_frames": 22
+  },
+  {
+    "video_id": "original_183_07b6d2b7",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.1065245419024275,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "original_217_1891f4f1",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.20849481322963176,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 29,
+    "detected_frames": 29
+  },
+  {
+    "video_id": "original_226_dcd6d844",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.2299924364144152,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 11,
+    "detected_frames": 11
+  },
+  {
+    "video_id": "original_249_33261d6d",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.07040902806064961,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 22,
+    "detected_frames": 22
+  },
+  {
+    "video_id": "original_254_cb92b059",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.16052953407375348,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  },
+  {
+    "video_id": "original_255_4424c07e",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.39404204132733867,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "original_261_c0ec4410",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.528399644752166,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 28,
+    "detected_frames": 28
+  },
+  {
+    "video_id": "original_278_290dad1b",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.18435045041971737,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  },
+  {
+    "video_id": "original_299_0cec04f6",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.1709929650560731,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 21,
+    "detected_frames": 21
+  },
+  {
+    "video_id": "original_313_aa45249c",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.36594127408941,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 17,
+    "detected_frames": 17
+  },
+  {
+    "video_id": "original_354_a9d73cf1",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.19046071989578195,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "original_375_c10e019e",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.22284846268594266,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 15,
+    "detected_frames": 15
+  },
+  {
+    "video_id": "original_376_a8952fbc",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.023444095083201926,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 21,
+    "detected_frames": 21
+  },
+  {
+    "video_id": "original_443_d1d2b168",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.012789173092207184,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 46,
+    "detected_frames": 46
+  },
+  {
+    "video_id": "original_465_4180354d",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.5955815802920948,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 11,
+    "detected_frames": 11
+  },
+  {
+    "video_id": "original_478_78319e1a",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.011299659106880426,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 25,
+    "detected_frames": 25
+  },
+  {
+    "video_id": "original_483_84d64da9",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.5448182938763728,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "original_506_c13a684f",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.09088394600574089,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 23,
+    "detected_frames": 23
+  },
+  {
+    "video_id": "original_512_45c03563",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.003593328567997863,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 30,
+    "detected_frames": 30
+  },
+  {
+    "video_id": "original_518_b67f455f",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.07933493629645776,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 17,
+    "detected_frames": 17
+  },
+  {
+    "video_id": "original_526_28924f4c",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.455640527552792,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 28,
+    "detected_frames": 28
+  },
+  {
+    "video_id": "original_543_2c951df8",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8484412072033718,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 29,
+    "detected_frames": 29
+  },
+  {
+    "video_id": "original_581_15e2ccab",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.5390997156500816,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "original_610_b422b371",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.17358764819800854,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "original_612_c8614ecf",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.004492218040728143,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "original_715_ee35199d",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.056499006716406036,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 29,
+    "detected_frames": 29
+  },
+  {
+    "video_id": "original_763_69d1d1fa",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.3626182415921773,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 28,
+    "detected_frames": 28
+  },
+  {
+    "video_id": "original_765_8d0bde79",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.014778697361739783,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "original_768_91438914",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.6324565847005162,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "original_829_696c1990",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.21715807083442254,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 27,
+    "detected_frames": 27
+  },
+  {
+    "video_id": "original_860_e6b613d0",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.4324658513069153,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "original_866_8b0d9134",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.6472159138716319,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 17,
+    "detected_frames": 17
+  },
+  {
+    "video_id": "original_890_e0c3165f",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.2774237412959337,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "original_898_9399c3d6",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.015402599503951413,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "original_901_66d229cb",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8531107488605711,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  },
+  {
+    "video_id": "original_913_4735a0ae",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.08674277193759652,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 22,
+    "detected_frames": 22
+  },
+  {
+    "video_id": "original_929_bf271968",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.18728440557606518,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "original_931_471292bb",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.0725232447282626,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "original_941_3ac47719",
+    "true_label": "REAL",
+    "predicted_label": "FAKE",
+    "fake_score": 0.7489461328834295,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 20,
+    "detected_frames": 20
+  },
+  {
+    "video_id": "original_965_01a0d279",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.011413326137699187,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "original_971_8a006b96",
+    "true_label": "REAL",
+    "predicted_label": "REAL",
+    "fake_score": 0.24179932878663143,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "Deepfakes_060_088_5a53270f",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9776200196322273,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 34,
+    "detected_frames": 34
+  },
+  {
+    "video_id": "Deepfakes_072_037_1bfa8fce",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9867166234896734,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "Deepfakes_174_964_cdd2aa15",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8096744609730584,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "Deepfakes_198_106_da37374e",
+    "true_label": "FAKE",
+    "predicted_label": "REAL",
+    "fake_score": 0.4467542384352003,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "Deepfakes_208_215_2568b307",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9531225624837374,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 19,
+    "detected_frames": 19
+  },
+  {
+    "video_id": "Deepfakes_314_347_17d62014",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9852598522390638,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "Deepfakes_451_449_a6799e6c",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9850945518567011,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "Deepfakes_534_490_5330b62e",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9733254313468933,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "Deepfakes_601_653_fc73192c",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9727725478319021,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "Deepfakes_986_994_5df7ddc1",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9716997251791113,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 34,
+    "detected_frames": 34
+  },
+  {
+    "video_id": "Face2Face_310_196_cbdf02fb",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8884238203366598,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  },
+  {
+    "video_id": "Face2Face_365_307_df39fc0a",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.603214262984693,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "Face2Face_382_409_0fe16d69",
+    "true_label": "FAKE",
+    "predicted_label": "REAL",
+    "fake_score": 0.08776677524050076,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 15,
+    "detected_frames": 15
+  },
+  {
+    "video_id": "Face2Face_543_559_a52a02fd",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9912919402122498,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "Face2Face_583_558_74dd317c",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.793450395266215,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  },
+  {
+    "video_id": "Face2Face_652_773_adc7a7b2",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.995855325460434,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 20,
+    "detected_frames": 20
+  },
+  {
+    "video_id": "Face2Face_753_789_f1cd9528",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9731381661013553,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 19,
+    "detected_frames": 19
+  },
+  {
+    "video_id": "Face2Face_901_902_e6228114",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9763427376747131,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 10,
+    "detected_frames": 10
+  },
+  {
+    "video_id": "Face2Face_902_901_b086d0ed",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.5689222001367145,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  },
+  {
+    "video_id": "Face2Face_985_981_a83e3f01",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9934239069620768,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 15,
+    "detected_frames": 15
+  },
+  {
+    "video_id": "FaceShifter_213_083_944cc471",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9711518425207871,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "FaceShifter_235_194_23460e65",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9848760183040912,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "FaceShifter_377_333_3715e25e",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.7937157239232745,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "FaceShifter_493_538_1a538031",
+    "true_label": "FAKE",
+    "predicted_label": "REAL",
+    "fake_score": 0.3267836133018136,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "FaceShifter_677_671_800119cd",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9811766852032054,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 11,
+    "detected_frames": 11
+  },
+  {
+    "video_id": "FaceShifter_787_782_a8c96321",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.810499560265314,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 21,
+    "detected_frames": 21
+  },
+  {
+    "video_id": "FaceShifter_811_920_fd3b485f",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9868661409074609,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 22,
+    "detected_frames": 22
+  },
+  {
+    "video_id": "FaceShifter_845_846_9bb621d6",
+    "true_label": "FAKE",
+    "predicted_label": "REAL",
+    "fake_score": 0.412539666518569,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 15,
+    "detected_frames": 15
+  },
+  {
+    "video_id": "FaceShifter_936_931_8238f708",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9808362424373627,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "FaceShifter_989_993_25f5c683",
+    "true_label": "FAKE",
+    "predicted_label": "REAL",
+    "fake_score": 0.2758160925780733,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 39,
+    "detected_frames": 39
+  },
+  {
+    "video_id": "FaceSwap_059_050_1eb4ef1b",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8988910723816265,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 22,
+    "detected_frames": 22
+  },
+  {
+    "video_id": "FaceSwap_070_057_f0bd8691",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8217555701732635,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 15,
+    "detected_frames": 15
+  },
+  {
+    "video_id": "FaceSwap_198_106_1bc0e014",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.5752370789026221,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "FaceSwap_235_194_974f9c32",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9642725265943087,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "FaceSwap_265_475_acdcadde",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9484294184616634,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 14,
+    "detected_frames": 14
+  },
+  {
+    "video_id": "FaceSwap_319_352_d280bcd6",
+    "true_label": "FAKE",
+    "predicted_label": "REAL",
+    "fake_score": 0.03577922507846618,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 17,
+    "detected_frames": 17
+  },
+  {
+    "video_id": "FaceSwap_408_424_8a8f634a",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.906068361722506,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "FaceSwap_534_490_a0f3ce04",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.558809139765799,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "FaceSwap_810_838_2d6abc4e",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9648231789469719,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 16,
+    "detected_frames": 16
+  },
+  {
+    "video_id": "FaceSwap_820_818_1bc2d861",
+    "true_label": "FAKE",
+    "predicted_label": "REAL",
+    "fake_score": 0.4802522471076564,
+    "prediction_correct": false,
+    "detection_rate": 1.0,
+    "total_frames": 19,
+    "detected_frames": 19
+  },
+  {
+    "video_id": "NeuralTextures_067_025_66bc71b3",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8861562493774626,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  },
+  {
+    "video_id": "NeuralTextures_355_748_b27aafad",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.9823108261281793,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 11,
+    "detected_frames": 11
+  },
+  {
+    "video_id": "NeuralTextures_370_483_56b0f438",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.718976329635972,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 13,
+    "detected_frames": 13
+  },
+  {
+    "video_id": "NeuralTextures_554_572_dfc10615",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.6210725319882234,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "NeuralTextures_589_565_9ba6646b",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8759831810990969,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  },
+  {
+    "video_id": "NeuralTextures_599_585_c6914696",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.7982917924722036,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "NeuralTextures_662_641_3336e2ee",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.7259442638605833,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "NeuralTextures_822_244_87ca7bfe",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8172803744673729,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 12,
+    "detected_frames": 12
+  },
+  {
+    "video_id": "NeuralTextures_823_584_2a2b575a",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.994213393330574,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 20,
+    "detected_frames": 20
+  },
+  {
+    "video_id": "NeuralTextures_924_917_79e77b20",
+    "true_label": "FAKE",
+    "predicted_label": "FAKE",
+    "fake_score": 0.8944325281514062,
+    "prediction_correct": true,
+    "detection_rate": 1.0,
+    "total_frames": 18,
+    "detected_frames": 18
+  }
+]

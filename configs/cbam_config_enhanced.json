@@ -1,0 +1,44 @@
+{
+  "model": {
+    "name": "efficientnet_cbam_enhanced",
+    "pretrained": true,
+    "cbam_variant": "aggressive",
+    "use_multiscale": false,
+    "dropout": 0.4,
+    "reduction_ratio": 8,
+    "kernel_size": 5
+  },
+  "training": {
+    "epochs": 100,
+    "batch_size": 32,
+    "learning_rate": 0.0001,
+    "cbam_lr_multiplier": 3.0,
+    "classifier_lr_multiplier": 2.0,
+    "weight_decay": 0.0001,
+    "early_stopping_patience": 15,
+    "lr_factor": 0.5,
+    "lr_patience": 5,
+    "gradient_clip_max_norm": 1.0,
+    "freeze_epochs": 10,
+    "mixup_alpha": 0.2,
+    "label_smoothing": 0.1
+  },
+  "data": {
+    "data_dir": "../preprocessed_dataset",
+    "image_size": 224,
+    "num_workers": 4,
+    "augmentation": {
+      "random_flip": 0.5,
+      "random_rotation": 15,
+      "color_jitter": 0.2,
+      "random_affine": 0.3,
+      "gaussian_blur": 0.3,
+      "random_erasing": 0.2
+    }
+  },
+  "transfer_learning": {
+    "baseline_path": "checkpoints/baselines/efficientnet_b0_enhanced_best.pth",
+    "freeze_efficientnet": true,
+    "freeze_epochs": 10
+  }
+}

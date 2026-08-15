@@ -1,9 +1,9 @@
-# model/train_baseline.py
+# training/train_baseline.py
 
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(PROJECT_ROOT))
 
 import torch
@@ -11,7 +11,7 @@ import torch.nn as nn
 from tqdm import tqdm
 import pandas as pd
 from data.DataLoader import build_dataloaders
-from model.efficientnet_baseline import EfficientNetB0Baseline
+from models.efficientnet_baseline import EfficientNetB0Baseline
 
 
 def train_one_epoch(model, train_loader, criterion, optimizer, device):

@@ -1,10 +1,10 @@
-# model/train_baseline_enhanced.py
+# training/train_baseline_enhanced.py
 # Enhanced training script with anti-overfitting techniques
 
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(PROJECT_ROOT))
 
 import torch
@@ -13,7 +13,7 @@ from tqdm import tqdm
 import pandas as pd
 import numpy as np
 from data.DataLoader import build_dataloaders
-from model.efficientnet_baseline import EfficientNetB0Baseline
+from models.efficientnet_baseline import EfficientNetB0Baseline
 
 
 class EarlyStopping:
@@ -34,14 +34,6 @@ class EarlyStopping:
         self.best_weights = None
 
     def __call__(self, val_loss, model):
-        """
-        Args:
-            val_loss: Current validation loss
-            model: Current model instance
-
-        Returns:
-            True if training should stop, False otherwise
-        """
         if self.best_loss is None:
             self.best_loss = val_loss
             self.save_best_weights(model)
@@ -63,7 +55,6 @@ class EarlyStopping:
             return False
 
     def save_best_weights(self, model):
-        """Save the best model weights."""
         self.best_weights = model.state_dict().copy()
 
 
@@ -273,10 +264,6 @@ def main():
     # Initialize model
     model = EfficientNetB0Baseline(pretrained=True)
     model = model.to(device)
-
-    # Loss function with label smoothing
-    # Note: BCEWithLogitsLoss doesn't directly support label smoothing,
-    # but we can implement it manually in the training loop
     criterion = nn.BCEWithLogitsLoss()
 
     # Optimizer with increased weight decay
@@ -286,8 +273,6 @@ def main():
         weight_decay=weight_decay,
     )
 
-    # Learning rate scheduler - ReduceLROnPlateau
-    # This reduces learning rate when validation loss plateaus
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer,
         mode='min',  # Reduce LR when validation loss stops decreasing
@@ -296,7 +281,6 @@ def main():
         min_lr=min_learning_rate,  # Don't go below this LR
     )
 
-    # Early stopping
     early_stopping = EarlyStopping(
         patience=patience,
         min_delta=min_delta,

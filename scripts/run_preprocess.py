@@ -1,7 +1,13 @@
 # run_preprocess.py
 
-import argparse
+import sys
 from pathlib import Path
+
+# Add project root to path
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(PROJECT_ROOT))
+
+import argparse
 
 from preprocessing.config import (
     DEFAULT_FRAMES_PER_VIDEO,
