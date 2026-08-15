@@ -2,3 +2,4 @@
 streamlit>=1.36
 pandas>=2.0
 plotly>=5.20
+opencv-python-headless==4.13.0.92
